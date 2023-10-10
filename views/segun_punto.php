@@ -57,14 +57,14 @@ class Triangulo extends FiguraGeometrica {
     }
 }
 
-//
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tipoFigura = $_POST["tipo_figura"];
     $area = 0;
 
+    if(!empty($_POST["lado"])){
     switch ($tipoFigura) {
         case "circulo":
-            $radio = floatval($_POST["radio"]);
+            $radio = floatval(($_POST["radio"]));
             $figura = new Circulo($radio);
             $area = $figura->calcularArea();
             break;
@@ -86,6 +86,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $area = $figura->calcularArea();
             break;
     }
+}
 }
 ?>
 
