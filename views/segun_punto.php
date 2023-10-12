@@ -1,4 +1,5 @@
 <?php
+
 class FiguraGeometrica {
     public function calcularArea() {
         return 0;
@@ -60,7 +61,7 @@ class Triangulo extends FiguraGeometrica {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tipoFigura = isset($_POST["tipo_figura"]) ? $_POST["tipo_figura"] : null;
     $area = 0;
-
+    
     if (!empty($tipoFigura)) {
         switch ($tipoFigura) {
             case "circulo":
