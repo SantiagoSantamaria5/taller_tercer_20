@@ -58,39 +58,37 @@ class Triangulo extends FiguraGeometrica {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $tipoFigura = $_POST["tipo_figura"];
+    $tipoFigura = isset($_POST["tipo_figura"]) ? $_POST["tipo_figura"] : null;
     $area = 0;
 
-    if(!empty($_POST["lado"])){
-    switch ($tipoFigura) {
-        case "circulo":
-            $radio = floatval(($_POST["radio"]));
-            $figura = new Circulo($radio);
-            $area = $figura->calcularArea();
-            break;
-        case "cuadrado":
-            $lado = floatval($_POST["lado"]);
-            $figura = new Cuadrado($lado);
-            $area = $figura->calcularArea();
-            break;
-        case "rectangulo":
-            $base = floatval($_POST["base"]);
-            $altura = floatval($_POST["altura"]);
-            $figura = new Rectangulo($base, $altura);
-            $area = $figura->calcularArea();
-            break;
-        case "triangulo":
-            $base = floatval($_POST["base"]);
-            $altura = floatval($_POST["altura"]);
-            $figura = new Triangulo($base, $altura);
-            $area = $figura->calcularArea();
-            break;
+    if (!empty($tipoFigura)) {
+        switch ($tipoFigura) {
+            case "circulo":
+                $radio = isset($_POST["radio"]) ? floatval($_POST["radio"]) : 0;
+                $figura = new Circulo($radio);
+                $area = $figura->calcularArea();
+                break;
+            case "cuadrado":
+                $lado = isset($_POST["lado"]) ? floatval($_POST["lado"]) : 0;
+                $figura = new Cuadrado($lado);
+                $area = $figura->calcularArea();
+                break;
+            case "rectangulo":
+                $base = isset($_POST["base"]) ? floatval($_POST["base"]) : 0;
+                $altura = isset($_POST["altura"]) ? floatval($_POST["altura"]) : 0;
+                $figura = new Rectangulo($base, $altura);
+                $area = $figura->calcularArea();
+                break;
+            case "triangulo":
+                $base = isset($_POST["base"]) ? floatval($_POST["base"]) : 0;
+                $altura = isset($_POST["altura"]) ? floatval($_POST["altura"]) / 2 : 0;
+                $figura = new Triangulo($base, $altura);
+                $area = $figura->calcularArea();
+                break;
+        }
     }
 }
-}
 ?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -111,24 +109,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (isset($tipoFigura)) {
             switch ($tipoFigura) {
                 case "circulo":
-                    echo '<label>Radio:</label> <input type="number" name="radio" required step="any">';
+                    echo '<label>Radio:</label> <input type="number" name="radio" step="any">';
                     break;
                 case "cuadrado":
-                    echo '<label>Lado:</label> <input type="number" name="lado" required step="any">';
+                    echo '<label>Lado:</label> <input type="number" name="lado" step="any">';
                     break;
                 case "rectangulo":
-                    echo '<label>Base:</label> <input type="number" name="base" required step="any"><br>';
-                    echo '<label>Altura:</label> <input type="number" name="altura" required step="any">';
+                    echo '<label>Base:</label> <input type="number" name="base" step="any"><br>';
+                    echo '<label>Altura:</label> <input type="number" name="altura" step="any">';
                     break;
                 case "triangulo":
-                    echo '<label>Base:</label> <input type="number" name="base" required step="any"><br>';
-                    echo '<label>Altura:</label> <input type="number" name="altura" required step="any">';
+                    echo '<label>Base:</label> <input type="number" name="base" step="any"><br>';
+                    echo '<label>Altura:</label> <input type="number" name="altura" step="any">';
                     break;
             }
         }
         ?>
         <br>
-        <input type="submit" value="Calcular">
+        <input type="submit" value="Seleccionar">
     </form>
     <br>
     <?php
