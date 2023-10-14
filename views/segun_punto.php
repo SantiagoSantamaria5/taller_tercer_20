@@ -136,5 +136,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "El área de la figura seleccionada es: " . number_format($area, 2);
     }
     ?>
+    <div>
+    <a href="../index.html">
+    <button>VOLVER</button>
+    </a>
+    </div>
+    
 </body>
 </html>
