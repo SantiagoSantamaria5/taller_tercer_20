@@ -57,10 +57,10 @@ class Triangulo extends FiguraGeometrica {
         return 0.5 * $this->base * $this->altura;
     }
 }
-
+$tipoFigura = '';
+$area = 0;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $tipoFigura = isset($_POST["tipo_figura"]) ? $_POST["tipo_figura"] : null;
-    $area = 0;
     
     if (!empty($tipoFigura)) {
         switch ($tipoFigura) {
@@ -96,15 +96,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Calculadora de Áreas</title>
 </head>
 <body>
-    <h1>Calculadora de Áreas de Figuras Geométricas</h1>
+    <h1>Calcular Áreas de Figuras Geométricas</h1>
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
         <label>Selecciona una figura:</label>
         <select name="tipo_figura">
-            <option value="circulo">Círculo</option>
-            <option value="cuadrado">Cuadrado</option>
-            <option value="rectangulo">Rectángulo</option>
-            <option value="triangulo">Triángulo</option>
-        </select>
+            <option value="circulo" <?php echo($tipoFigura == 'círculo'? 'selected':''  );?>>Círculo </option>
+            <option value="cuadrado" <?php echo($tipoFigura == 'cuadrado'? 'selected':'');?>>Cuadrado  </option>
+            <option value="rectangulo" <?php echo($tipoFigura == 'rectangulo'? 'selected':'');?>>Rectángulo </option>
+            <option value="triangulo" <?php echo($tipoFigura == 'triangulo'? 'selected':'');?>>Triángulo  </option>
+        </select><input type="submit" value="Cambiar">
         <br>
         <?php
         if (isset($tipoFigura)) {
