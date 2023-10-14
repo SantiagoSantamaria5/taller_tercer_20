@@ -16,3 +16,16 @@ $impares = array_filter($numeros, function($numero) {
 sort($impares);
 echo "Lista de números impares ordenada de menor a mayor: " . implode(", ", $impares) . "<br>";
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div>
+    <a href="../index.html">
+    <button>VOLVER</button>
+    </a>
+    </div>
+</body>
+</html>
