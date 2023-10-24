@@ -2,14 +2,9 @@
 
 $calificacion_maxima = '';
 $calificacion_minima = '';
+$cantidad_notas = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-    $nombre_materia = $_POST['nombre_materia'] ?? '';
-    $cantidad_notas = (isset($_POST['cantidad_notas']) && is_numeric($_POST['cantidad_notas'])) ? intval($_POST['cantidad_notas']) : 0;
-    $calificacion_minima = (isset($_POST['calificacion_minima']) && is_numeric($_POST['calificacion_minima'])) ? floatval($_POST['calificacion_minima']) : 0;
-    $calificacion_maxima = (isset($_POST['calificacion_maxima']) && is_numeric($_POST['calificacion_maxima'])) ? floatval($_POST['calificacion_maxima']) : 0;
-
     $suma_notas = 0;
     $error = false;
 
@@ -23,9 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 echo '<input type="text" name="nota' . $i . '" id="nota' . $i . '"><br>';
             
             }
+            echo '<input type="hidden" value="'.$cantidad_notas.'" name="cantidad_notas">';
             echo '<input type="submit" value="Calcular">';
             echo '</form>';
-            echo "la calificacion minima es :" ,$calificacion_minima = $_POST['calificacion_minima'];
+            echo "la calificacion minima es :" , $calificacion_minima = $_POST['calificacion_minima'];
             echo "<br>";
             echo "la calificacion maxima es :" , $calificacion_maxima = $_POST['calificacion_maxima'];
            
@@ -33,10 +29,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             echo "La cantidad de notas debe ser mayor que cero.";
         }
     }
-    
+
+    $nombre_materia = $_POST['nombre_materia'] ?? '';
+    $cantidad_notas = (isset($_POST['cantidad_notas']) && is_numeric($_POST['cantidad_notas'])) ? intval($_POST['cantidad_notas']) : 0;
+
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["nota1"])) {
-        $suma_notas = 0;
+        $suma_notas = '';
         $error = false;
+<<<<<<< HEAD
+======
+>>>>>>> 4680edff93b9f67f3577c40ae825df6e89caf888
     
         for ($i = 1; $i <= $cantidad_notas; $i++) {
             $nota = isset($_POST['nota' . $i]) && is_numeric($_POST['nota' . $i]) ? floatval($_POST['nota' . $i]) : 0;
