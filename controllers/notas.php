@@ -36,9 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["nota1"])) {
         $suma_notas = '';
         $error = false;
-<<<<<<< HEAD
-======
->>>>>>> 4680edff93b9f67f3577c40ae825df6e89caf888
     
         for ($i = 1; $i <= $cantidad_notas; $i++) {
             $nota = isset($_POST['nota' . $i]) && is_numeric($_POST['nota' . $i]) ? floatval($_POST['nota' . $i]) : 0;
