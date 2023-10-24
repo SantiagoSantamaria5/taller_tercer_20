@@ -37,8 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["nota1"])) {
         $suma_notas = 0;
         $error = false;
-        $calificacion_minima = $_POST['calificacion_minima'] ;
-        $calificacion_maxima = $_POST['calificacion_maxima'] ;
     
         for ($i = 1; $i <= $cantidad_notas; $i++) {
             $nota = isset($_POST['nota' . $i]) && is_numeric($_POST['nota' . $i]) ? floatval($_POST['nota' . $i]) : 0;
