@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 echo "El promedio de las notas es: $promedio. El estudiante pasa.";
             } else {
                 echo "El promedio de las notas es: $promedio. El estudiante pierde.";
-            } 
+            }
         }
     }
 }
