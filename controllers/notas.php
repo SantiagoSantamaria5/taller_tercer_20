@@ -60,3 +60,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+    </style>
+</head>
+<body>
+<div class="button-container">
+    <a href="../index.html">
+        <button class="custom-button">VOLVER</button>
+    </a>
+</div>
+</body>
+</html>
