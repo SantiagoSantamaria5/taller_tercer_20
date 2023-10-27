@@ -12,7 +12,9 @@
         Nombre: <input type="text" name="nombre_docente"><br>
         Ocupación:
         <select name="ocupacion_docente">
-            <!-- Aquí debes cargar las ocupaciones desde la base de datos -->
+            <?php 
+                <option value=""></option>
+            ?>
         </select><br>
         <input type="submit" name="submit_docente" value="Registrar Docente">
     </form>

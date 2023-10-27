@@ -1,13 +1,13 @@
 <?php
 //el namespace es la ruta para poder imporatar una carpeta para el proyecto
-namespace EstudianteApp\Controllers\Database;
+namespace taller_terrcer_20\Controllers\Database;
 use mysqli;
 
 class DatabaseController{
     private $DB_HOST = 'localhost';
         private $DB_USER = 'root';
         private $DB_PWD = '';
-        private $DB_NAME = 'estudiante';
+        private $DB_NAME = 'asignaturas2_db';
         private $conx;
 
         function __construct()

@@ -10,10 +10,10 @@ if (!$conexion) {
 if (isset($_POST['submit_curso'])) {
     $codigo = $_POST['codigo_curso'];
     $nombre = $_POST['nombre_curso'];
-    $docente = $_POST['docente_curso'];
+    $curso= $_POST['curso_curso'];
 
     // Realizar la inserción en la base de datos
-    $sql = "INSERT INTO cursos (codigo, nombre, docente_id) VALUES ('$codigo', '$nombre', $docente)";
+    $sql = "INSERT INTO cursos (codigo, nombre, curso_id) VALUES ('$codigo', '$nombre', $curso)";
 
     if (mysqli_query($conexion, $sql)) {
         echo "Curso registrado correctamente.";
