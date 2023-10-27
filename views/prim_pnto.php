@@ -20,12 +20,39 @@ echo "Lista de números impares ordenada de menor a mayor: " . implode(", ", $im
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .button-container {
+            text-align: center;
+        }
+
+        .button-container a {
+            text-decoration: none;
+        }
+
+        .custom-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .custom-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-<div>
+<div class="button-container">
     <a href="../index.html">
-    <button>VOLVER</button>
+        <button class="custom-button">VOLVER</button>
     </a>
-    </div>
+</div>
 </body>
 </html>
+
